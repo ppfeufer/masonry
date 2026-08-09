@@ -1,84 +1,73 @@
-# Masonry
+# Masonry - Cascading grid layout library
 
-_Cascading grid layout library_
+**Cascading grid layout library**
 
-Masonry works by placing elements in optimal position based on available vertical space, sort of like a mason fitting stones in a wall. You’ve probably seen it in use all over the Internet.
+______________________________________________________________________
 
-See [masonry.desandro.com](https://masonry.desandro.com) for complete docs and demos.
+<!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=2 -->
 
-## Install
+- [What is Masonry?](#what-is-masonry)
+- [Install](#install)
+  - [Download](#download)
+- [Usage](#usage)
+  - [With jQuery](#with-jquery)
+  - [With Vanilla JavaScript](#with-vanilla-javascript)
+  - [With HTML](#with-html)
 
-### Download
+<!-- mdformat-toc end -->
 
-+ [masonry.pkgd.js](https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js) un-minified, or
-+ [masonry.pkgd.min.js](https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js) minified
+______________________________________________________________________
 
-### CDN
+## What is Masonry?<a name="what-is-masonry"></a>
 
-Link directly to Masonry files on [unpkg](https://unpkg.com/).
+Masonry is a JavaScript grid layout library. It works by placing elements in optimal
+position based on available vertical space, sort of like a mason fitting stones in a
+wall. You've probably seen it in use all over the Internet.
 
-``` html
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
-<!-- or -->
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-```
+## Install<a name="install"></a>
 
-### Package managers
+### Download<a name="download"></a>
 
-[npm](https://www.npmjs.com/package/masonry-layout): `npm install masonry-layout --save`
+Things to come…
 
-Bower: `bower install masonry-layout --save`
+## Usage<a name="usage"></a>
 
-## Support Masonry development
+### With jQuery<a name="with-jquery"></a>
 
-Masonry has been actively maintained and improved upon for 8 years, with 900 GitHub issues closed. Please consider supporting its development by [purchasing a license for one of Metafizzy's commercial libraries](https://metafizzy.co).
-
-## Initialize
-
-With jQuery
-
-``` js
+```js
 $('.grid').masonry({
-  // options...
-  itemSelector: '.grid-item',
-  columnWidth: 200
+    // options...
+    itemSelector: '.grid-item',
+    columnWidth: 200
 });
 ```
 
-With vanilla JavaScript
+### With Vanilla JavaScript<a name="with-vanilla-javascript"></a>
 
-``` js
+```js
 // vanilla JS
 // init with element
-var grid = document.querySelector('.grid');
-var msnry = new Masonry( grid, {
-  // options...
-  itemSelector: '.grid-item',
-  columnWidth: 200
+const grid = document.querySelector('.grid');
+const msnry = new Masonry(grid, {
+    // options...
+    itemSelector: '.grid-item',
+    columnWidth: 200
 });
 
 // init with selector
-var msnry = new Masonry( '.grid', {
-  // options...
+const msnry = new Masonry('.grid', {
+    // options...
 });
 ```
 
-With HTML
+### With HTML<a name="with-html"></a>
 
 Add a `data-masonry` attribute to your element. Options can be set in JSON in the value.
 
-``` html
-<div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
-  <div class="grid-item"></div>
-  <div class="grid-item"></div>
-  ...
+```html
+<div class="grid" data-masonry='{"itemSelector": ".grid-item", "columnWidth": 200}'>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    ...
 </div>
 ```
-
-## License
-
-Masonry is released under the [MIT license](http://desandro.mit-license.org). Have at it.
-
-* * *
-
-Made by David DeSandro
