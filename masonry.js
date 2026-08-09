@@ -138,11 +138,25 @@
 
     proto._getTopColPosition = function (colSpan) {
         const colGroup = this._getTopColGroup(colSpan);
-        // get the minimum Y value from the columns
         const minimumY = Math.min.apply(Math, colGroup);
+        let col = colGroup.indexOf(minimumY);
+
+        // get column error margin
+        const maxColumnHeightDifference = this._getOption('maxColumnHeightDifference');
+
+        if (maxColumnHeightDifference && maxColumnHeightDifference > 0) {
+            // find first column within margin
+            for (let c = 0, n = colGroup.length; c < n; c++) {
+                if (colGroup[c] <= minimumY + maxColumnHeightDifference) {
+                    col = c;
+
+                    break;
+                }
+            }
+        }
 
         return {
-            col: colGroup.indexOf(minimumY),
+            col: col,
             y: minimumY
         };
     };

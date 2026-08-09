@@ -48,6 +48,11 @@ Section Order:
 
 <!-- Your changes go here -->
 
+### Added
+
+- `maxColumnHeightDifference` as an option in an effort to make the masonry layout
+  more flexible and allow for a more even distribution of items across columns.
+
 ### Changed
 
 - Convert the factory to an arrow function
