@@ -1,7 +1,7 @@
 # Prepare a new release
 # Update the graph of the models, translation files and the version in the package
 .PHONY: prepare-release
-prepare-release: pot
+prepare-release:
 	@echo "Preparing a release…"
 	@read -p "New Version Number: " new_version; \
 	if ! grep -qE "^## \[$$new_version\]" CHANGELOG.md; then \
@@ -18,9 +18,9 @@ prepare-release: pot
 	rm -rf node_modules; \
 	rm package-lock.json; \
 	npm install; \
-	# Update the version in the main JS file and minify it \
-	sed -i -E "\|\* @version |s|@version .*|@version $$new_version|g" dist/masonry.js; \
-	make minify-js; \
+	# Update the version in the main JS file and build the JS files \
+	sed -i -E "\|\* @version |s|@version .*|@version $$new_version|g" masonry.js; \
+	make build; \
 	if [[ $$new_version =~ (alpha|beta) ]]; then \
 		echo "$(TEXT_COLOR_RED)$(TEXT_BOLD)Pre-release$(TEXT_RESET) version detected!"; \
 		git restore $(TRANSLATION__TEMPLATE); \

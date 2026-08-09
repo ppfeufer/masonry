@@ -13,6 +13,7 @@ ______________________________________________________________________
   - [With jQuery](#with-jquery)
   - [With Vanilla JavaScript](#with-vanilla-javascript)
   - [With HTML](#with-html)
+- [Development](#development)
 
 <!-- mdformat-toc end -->
 
@@ -28,7 +29,7 @@ wall. You've probably seen it in use all over the Internet.
 
 ### Download<a name="download"></a>
 
-Download the latest release from [GitHub](https://github.com/ppfeufer/masonry/releases/latest).
+Download the latest release from [GitHub](https://github.com/ppfeufer/masonry/releases/download/latest/masonry.zip).
 
 ## Usage<a name="usage"></a>
 
@@ -71,3 +72,18 @@ Add a `data-masonry` attribute to your element. Options can be set in JSON in th
     ...
 </div>
 ```
+
+## Development<a name="development"></a>
+
+To rebuild the distributable files in `dist/` from the current `masonry.js` source and its bundled browser dependencies, run:
+
+```bash
+npm install
+npm run build
+```
+
+This will:
+
+- create `dist/masonry.js` by concatenating the required browser-ready dependency files and the local `masonry.js`
+- create `dist/masonry.min.js`
+- create `dist/masonry.min.js.map`
