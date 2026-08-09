@@ -2150,7 +2150,7 @@ return Outlayer;
 /**
  * Masonry
  */
-(function (window, factory) {
+((window, factory) => {
     'use strict';
 
     if (typeof define === 'function' && define.amd) {
@@ -2172,7 +2172,7 @@ return Outlayer;
             window.getSize
         );
     }
-}(window, function factory (Outlayer, getSize) {
+})(window, (Outlayer, getSize) => {
     'use strict';
 
     // create an Outlayer layout class
@@ -2396,4 +2396,4 @@ return Outlayer;
     };
 
     return Masonry;
-}));
+});

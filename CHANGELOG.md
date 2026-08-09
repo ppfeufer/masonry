@@ -48,6 +48,10 @@ Section Order:
 
 <!-- Your changes go here -->
 
+### Changed
+
+- Convert the factory to an arrow function
+
 ## [0.0.1] - 2026-08-09
 
 ### Changed
