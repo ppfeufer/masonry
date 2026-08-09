@@ -13,7 +13,7 @@ phpcs.xml
 .pre-commit-config.yaml
 package*.json
 composer.*
-node_modules
+/node_modules
 scss
 Makefile
 *.zip
@@ -22,3 +22,5 @@ Makefile
 .rsync-exclude
 docs
 CODEOWNERS
+/scripts
+/masonry.*

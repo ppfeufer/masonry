@@ -1,7 +1,26 @@
 {
+    "author": "Peter Pfeufer",
     "name": "@ppfeufer/masonry",
     "version": "0.0.1",
     "description": "Cascading grid layout library",
+    "main": "dist/masonry.js",
+    "license": "GPL-3.0-or-later",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ppfeufer/masonry"
+    },
+    "keywords": [
+        "grid",
+        "layout",
+        "masonry",
+        "cascading"
+    ],
+    "bugs": {
+        "url": "https://github.com/ppfeufer/masonry/issues"
+    },
+    "files": [
+        "dist"
+    ],
     "type": "module",
     "devDependencies": {
         "@eslint/js": "^10.0.1",
@@ -15,7 +34,9 @@
         "terser": "^5.48.0"
     },
     "scripts": {
-        "lint": "eslint --config eslint.config.js --ext .js --ignore-pattern '**/*.min.js' --debug",
+        "bundle": "node scripts/bundle.js",
+        "build": "npm run bundle && npm run minify",
+        "lint": "eslint --config eslint.config.js --ext .js --ignore-pattern '**/*.min.js' --ignore-pattern 'dist/**' --ignore-pattern 'scripts/**' --debug",
         "minify": "terser dist/masonry.js -o dist/masonry.min.js --source-map \"base='dist/',url='masonry.min.js.map'\" --compress reduce_vars=false --mangle --format quote_style=1"
     }
 }

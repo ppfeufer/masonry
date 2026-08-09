@@ -15,3 +15,7 @@ package-lock.json export-ignore
 eslint.config.js export-ignore
 Makefile export-ignore
 CODEOWNERS export-ignore
+scripts export-ignore
+/masonry.js export-ignore
+/masonry.min.js export-ignore
+/masonry.min.js.map export-ignore
