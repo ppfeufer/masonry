@@ -28,7 +28,7 @@ wall. You've probably seen it in use all over the Internet.
 
 ### Download<a name="download"></a>
 
-Things to come…
+Download the latest release from [GitHub](https://github.com/ppfeufer/masonry/releases/latest).
 
 ## Usage<a name="usage"></a>
 
