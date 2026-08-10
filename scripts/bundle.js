@@ -4,9 +4,10 @@
 
 'use strict';
 
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
+import {mkdir, readFile, writeFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
 
+// Sources to bundle together, in order. The last source is the Masonry runtime.
 const bundleSources = [
     {
         name: 'jQuery Bridget',
@@ -35,7 +36,7 @@ const bundleSources = [
     {
         name: 'Outlayer',
         file: 'node_modules/outlayer/outlayer.js'
-    },
+    }
 ];
 
 const projectRoot = process.cwd();
@@ -43,7 +44,13 @@ const distDirectory = resolve(projectRoot, 'dist');
 const distBundleFile = resolve(projectRoot, 'dist/masonry.js');
 const masonrySourceFile = resolve(projectRoot, 'masonry.js');
 
-function splitMasonrySource(source) {
+/**
+ * Splits the Masonry source file into a banner and runtime section.
+ *
+ * @param {string} source - The masonry.js source file content.
+ * @returns {{banner: string, runtime: string}|{banner: string, runtime: string}}
+ */
+const splitMasonrySource = (source) => {
     const masonrySectionMarker = '/**\n * Masonry';
     const masonrySectionIndex = source.indexOf(masonrySectionMarker);
 
@@ -58,10 +65,15 @@ function splitMasonrySource(source) {
         banner: source.slice(0, masonrySectionIndex).trimEnd(),
         runtime: source.slice(masonrySectionIndex).trimEnd()
     };
-}
+};
 
-async function getBundleContents() {
-    const sourceContents = await Promise.all(bundleSources.map(async ({ file, name }) => {
+/**
+ * Reads the contents of all source files and combines them into a single string.
+ *
+ * @returns {Promise<string>}
+ */
+const getBundleContents = async () => {
+    const sourceContents = await Promise.all(bundleSources.map(async ({file, name}) => {
         const filePath = resolve(projectRoot, file);
         const content = await readFile(filePath, 'utf8');
 
@@ -73,21 +85,29 @@ async function getBundleContents() {
     }));
 
     const masonrySource = await readFile(masonrySourceFile, 'utf8');
-    const { banner, runtime } = splitMasonrySource(masonrySource);
+    const {banner, runtime} = splitMasonrySource(masonrySource);
 
     return `${[banner, ...sourceContents, runtime].filter(Boolean).join('\n\n')}\n`;
-}
+};
 
-async function buildBundle() {
-    await mkdir(distDirectory, { recursive: true });
+/**
+ * Builds the bundle by reading source files, combining them, and writing to the dist directory.
+ *
+ * @returns {Promise<void>}
+ */
+const buildBundle = async () => {
+    await mkdir(distDirectory, {recursive: true});
 
     const bundleContents = await getBundleContents();
 
     await writeFile(distBundleFile, bundleContents, 'utf8');
 
     console.log(`Created ${distBundleFile} from ${bundleSources.length + 1} source files.`);
-}
+};
 
+/**
+ * Build the distribution bundle.
+ */
 buildBundle()
     .then(() => console.log('Bundle build complete.'))
     .catch(err => {

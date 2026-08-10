@@ -36,7 +36,7 @@
     "scripts": {
         "bundle": "node scripts/bundle.js",
         "build": "npm run bundle && npm run minify",
-        "lint": "eslint --config eslint.config.js --ext .js --ignore-pattern '**/*.min.js' --ignore-pattern 'dist/**' --ignore-pattern 'scripts/**' --debug",
+        "lint": "eslint --config eslint.config.js --ext .js --ignore-pattern '**/*.min.js' --ignore-pattern 'dist/**' --debug",
         "minify": "terser dist/masonry.js -o dist/masonry.min.js --source-map \"base='dist/',url='masonry.min.js.map'\" --compress reduce_vars=false --mangle --format quote_style=1"
     }
 }
