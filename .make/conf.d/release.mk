@@ -19,7 +19,7 @@ prepare-release:
 	rm package-lock.json; \
 	npm install; \
 	# Update the version in the main JS file and build the JS files \
-	sed -i -E "\|\* @version |s|@version .*|@version $$new_version|g" masonry.js; \
+	sed -i -E "\|\* @version |s|@version .*|@version $$new_version|g" src/masonry.js; \
 	make build; \
 	if [[ $$new_version =~ (alpha|beta) ]]; then \
 		echo "$(TEXT_COLOR_RED)$(TEXT_BOLD)Pre-release$(TEXT_RESET) version detected!"; \

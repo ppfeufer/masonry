@@ -16,6 +16,7 @@ eslint.config.js export-ignore
 Makefile export-ignore
 CODEOWNERS export-ignore
 scripts export-ignore
+src export-ignore
 /masonry.js export-ignore
 /masonry.min.js export-ignore
 /masonry.min.js.map export-ignore

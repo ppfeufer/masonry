@@ -42,7 +42,7 @@ const bundleSources = [
 const projectRoot = process.cwd();
 const distDirectory = resolve(projectRoot, 'dist');
 const distBundleFile = resolve(projectRoot, 'dist/masonry.js');
-const masonrySourceFile = resolve(projectRoot, 'masonry.js');
+const masonrySourceFile = resolve(projectRoot, 'src/masonry.js');
 
 /**
  * Splits the Masonry source file into a banner and runtime section.
