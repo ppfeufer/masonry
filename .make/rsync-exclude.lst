@@ -23,4 +23,5 @@ Makefile
 docs
 CODEOWNERS
 /scripts
+/src
 /masonry.*
