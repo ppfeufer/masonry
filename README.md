@@ -29,7 +29,7 @@ wall. You've probably seen it in use all over the Internet.
 
 ### Download<a name="download"></a>
 
-Download the latest release from [GitHub](https://github.com/ppfeufer/masonry/releases/download/latest/masonry.zip).
+Download the latest release from [GitHub](https://github.com/ppfeufer/masonry/releases/latest/download/masonry.zip).
 
 ## Usage<a name="usage"></a>
 
