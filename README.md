@@ -29,7 +29,12 @@ wall. You've probably seen it in use all over the Internet.
 
 ### Download<a name="download"></a>
 
-Download the latest release from [GitHub](https://github.com/ppfeufer/masonry/releases/latest/download/masonry.zip).
+Download the latest version of Masonry from [GitHub](https://github.com/ppfeufer/masonry/releases/latest/download/masonry.zip).
+
+> [!IMPORTANT]
+>
+> Do not use the JS file from the `src` folder, as this is the development version and can be unstable and buggy. \
+> Use only the JS files from the `dist` folder, which is included in the release archives.
 
 ## Usage<a name="usage"></a>
 
