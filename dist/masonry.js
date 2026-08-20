@@ -1,9 +1,25 @@
+((globalObject) => {
+    'use strict';
+
+    if (globalObject.__ppfeuferMasonryLoaded__) {
+        console.warn('Masonry bundle already loaded. Skipping duplicate load.');
+
+        return;
+    }
+
+    Object.defineProperty(globalObject, '__ppfeuferMasonryLoaded__', {
+        configurable: false,
+        enumerable: false,
+        value: true,
+        writable: false
+    });
+
 /* globals define */
 
 /*!
  * Masonry Plugin for jQuery (modernized fork by Peter Pfeufer)
  *
- * @version 1.0.0
+ * @version 1.1.0
  * @author Peter Pfeufer
  * @license GPL-3.0 or later
  * @link https://github.com/ppfeufer/masonry
@@ -2411,3 +2427,4 @@ return Outlayer;
 
     return Masonry;
 });
+})(typeof globalThis !== 'undefined' ? globalThis : window);
