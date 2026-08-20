@@ -48,6 +48,8 @@ Section Order:
 
 <!-- Your changes go here -->
 
+## [1.1.0] - 2026-08-20
+
 ### Added
 
 - Duplicate load protection to prevent multiple instances of the Masonry library from being loaded on the same page, which could lead to unexpected behavior and performance issues.
@@ -80,6 +82,7 @@ Section Order:
 [0.0.1]: https://github.com/ppfeufer/masonry/commits/v0.0.1 "v0.0.1"
 [0.0.2]: https://github.com/ppfeufer/masonry/compare/v0.0.1...v0.0.2 "v0.0.2"
 [1.0.0]: https://github.com/ppfeufer/masonry/compare/v0.0.2...v1.0.0 "v1.0.0"
-[in development]: https://github.com/ppfeufer/masonry/compare/v1.0.0...HEAD "In Development"
+[1.1.0]: https://github.com/ppfeufer/masonry/compare/v1.0.0...v1.1.0 "v1.1.0"
+[in development]: https://github.com/ppfeufer/masonry/compare/v1.1.0...HEAD "In Development"
 [keep a changelog]: http://keepachangelog.com/ "Keep a Changelog"
 [semantic versioning]: http://semver.org/ "Semantic Versioning"
