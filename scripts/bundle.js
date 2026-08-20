@@ -44,6 +44,28 @@ const distDirectory = resolve(projectRoot, 'dist');
 const distBundleFile = resolve(projectRoot, 'dist/masonry.js');
 const masonrySourceFile = resolve(projectRoot, 'src/masonry.js');
 
+// Guard to prevent duplicate loading of the Masonry bundle in the global scope.
+const bundleLoadGuardOpen = `((globalObject) => {
+    'use strict';
+
+    if (globalObject.__ppfeuferMasonryLoaded__) {
+        console.warn('Masonry bundle already loaded. Skipping duplicate load.');
+
+        return;
+    }
+
+    Object.defineProperty(globalObject, '__ppfeuferMasonryLoaded__', {
+        configurable: false,
+        enumerable: false,
+        value: true,
+        writable: false
+    });
+
+`;
+const bundleLoadGuardClose = `
+})(typeof globalThis !== 'undefined' ? globalThis : window);
+`;
+
 /**
  * Splits the Masonry source file into a banner and runtime section.
  *
@@ -87,7 +109,7 @@ const getBundleContents = async () => {
     const masonrySource = await readFile(masonrySourceFile, 'utf8');
     const {banner, runtime} = splitMasonrySource(masonrySource);
 
-    return `${[banner, ...sourceContents, runtime].filter(Boolean).join('\n\n')}\n`;
+    return `${bundleLoadGuardOpen}${[banner, ...sourceContents, runtime].filter(Boolean).join('\n\n')}${bundleLoadGuardClose}`;
 };
 
 /**
