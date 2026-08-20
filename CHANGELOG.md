@@ -48,6 +48,10 @@ Section Order:
 
 <!-- Your changes go here -->
 
+### Added
+
+- Duplicate load protection to prevent multiple instances of the Masonry library from being loaded on the same page, which could lead to unexpected behavior and performance issues.
+
 ## [1.0.0] - 2026-08-20
 
 ### Fixed
