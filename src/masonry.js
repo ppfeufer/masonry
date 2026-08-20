@@ -6,7 +6,7 @@
  * @version 0.0.2
  * @author Peter Pfeufer
  * @license GPL-3.0 or later
- * @link https://github.com/ppfeufer/stickyjs
+ * @link https://github.com/ppfeufer/masonry
  *
  * Description: Cascading grid layout library
  *

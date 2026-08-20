@@ -48,6 +48,10 @@ Section Order:
 
 <!-- Your changes go here -->
 
+### Fixed
+
+- Repository link in main JS comment header was incorrect and has been updated to point to the correct repository
+
 ## [0.0.2] - 2026-08-09
 
 ### Added
