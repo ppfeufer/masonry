@@ -4,11 +4,13 @@
 
 'use strict';
 
-import {mkdir, readFile, writeFile} from 'node:fs/promises';
+import {readFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 
+export const projectRoot = process.cwd();
+
 // Sources to bundle together, in order. The last source is the Masonry runtime.
-const bundleSources = [
+export const bundleSources = [
     {
         name: 'jQuery Bridget',
         file: 'node_modules/jquery-bridget/jquery-bridget.js'
@@ -39,13 +41,8 @@ const bundleSources = [
     }
 ];
 
-const projectRoot = process.cwd();
-const distDirectory = resolve(projectRoot, 'dist');
-const distBundleFile = resolve(projectRoot, 'dist/masonry.js');
-const masonrySourceFile = resolve(projectRoot, 'src/masonry.js');
-
 // Guard to prevent duplicate loading of the Masonry bundle in the global scope.
-const bundleLoadGuardOpen = `((globalObject) => {
+export const bundleLoadGuardOpen = `((globalObject) => {
     'use strict';
 
     if (globalObject.__ppfeuferMasonryLoaded__) {
@@ -62,7 +59,7 @@ const bundleLoadGuardOpen = `((globalObject) => {
     });
 
 `;
-const bundleLoadGuardClose = `
+export const bundleLoadGuardClose = `
 })(typeof globalThis !== 'undefined' ? globalThis : window);
 `;
 
@@ -72,7 +69,7 @@ const bundleLoadGuardClose = `
  * @param {string} source - The masonry.js source file content.
  * @returns {{banner: string, runtime: string}|{banner: string, runtime: string}}
  */
-const splitMasonrySource = (source) => {
+export const splitMasonrySource = (source) => {
     const masonrySectionMarker = '/**\n * Masonry';
     const masonrySectionIndex = source.indexOf(masonrySectionMarker);
 
@@ -94,7 +91,9 @@ const splitMasonrySource = (source) => {
  *
  * @returns {Promise<string>}
  */
-const getBundleContents = async () => {
+export const getBundleContents = async () => {
+    const masonrySourceFile = resolve(projectRoot, 'src/masonry.js');
+
     const sourceContents = await Promise.all(bundleSources.map(async ({file, name}) => {
         const filePath = resolve(projectRoot, file);
         const content = await readFile(filePath, 'utf8');
@@ -111,28 +110,3 @@ const getBundleContents = async () => {
 
     return `${bundleLoadGuardOpen}${[banner, ...sourceContents, runtime].filter(Boolean).join('\n\n')}${bundleLoadGuardClose}`;
 };
-
-/**
- * Builds the bundle by reading source files, combining them, and writing to the dist directory.
- *
- * @returns {Promise<void>}
- */
-const buildBundle = async () => {
-    await mkdir(distDirectory, {recursive: true});
-
-    const bundleContents = await getBundleContents();
-
-    await writeFile(distBundleFile, bundleContents, 'utf8');
-
-    console.log(`Created ${distBundleFile} from ${bundleSources.length + 1} source files.`);
-};
-
-/**
- * Build the distribution bundle.
- */
-buildBundle()
-    .then(() => console.log('Bundle build complete.'))
-    .catch(err => {
-        console.error('Error building bundle:', err);
-        process.exit(1);
-    });

@@ -56,6 +56,10 @@ Section Order:
 
 - Uncaught TypeError: `$(...).masonry` is not a function
 
+### Changed
+
+- Build config updated
+
 ## [1.1.0] - 2026-08-20
 
 ### Added

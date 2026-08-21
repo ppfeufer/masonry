@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Masonry - HTML Data Attribute Example</title>
+
+        <!-- Bootstrap 5 -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        >
+
+        <style>
+            body {
+                background-color: #f8f9fa;
+            }
+
+            /* Sizer element + items both use this width rule */
+            .masonry-sizer,
+            .masonry-item {
+                width: calc(33.333% - 14px);
+            }
+
+            /* Gutter below every card */
+            .masonry-item {
+                margin-bottom: 20px;
+            }
+
+            /* Colour-coded top border per category */
+            .card--technology { border-top: 3px solid #0d6efd; }
+            .card--design     { border-top: 3px solid #198754; }
+            .card--business   { border-top: 3px solid #dc3545; }
+            .card--science    { border-top: 3px solid #6f42c1; }
+            .card--tip        { border-top: 3px solid #fd7e14; }
+
+            @media (max-width: 767.98px) {
+                .masonry-sizer,
+                .masonry-item {
+                    width: calc(50% - 10px);
+                }
+            }
+
+            @media (max-width: 575.98px) {
+                .masonry-sizer,
+                .masonry-item {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-primary mb-4">
+            <div class="container">
+                <span class="navbar-brand mb-0 h1">Masonry — HTML Data Attribute Example</span>
+            </div>
+        </nav>
+
+        <div class="container">
+            <p class="text-muted mb-4">
+                No JavaScript required — add a <code>data-masonry</code> attribute to your
+                container and Masonry initialises itself automatically when the bundle loads.
+                Options are passed as a JSON string inside the attribute.
+            </p>
+
+            <!--
+                Options are passed as JSON in the data-masonry attribute.
+                columnWidth references the .masonry-sizer element defined in CSS above.
+            -->
+            <div
+                id="masonry-grid"
+                data-masonry='{"itemSelector": ".masonry-item", "columnWidth": ".masonry-sizer", "percentPosition": true, "gutter": 20}'
+            >
+                <!-- Sizer element – controls the column width via CSS -->
+                <div class="masonry-sizer"></div>
+
+                <div class="masonry-item">
+                    <div class="card h-auto shadow-sm card--technology">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Technology</span>
+                            <h5 class="card-title">Declarative Setup</h5>
+                            <p class="card-text">Short card — no <code>&lt;script&gt;</code> tag needed. Masonry reads the attribute and initialises itself.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item">
+                    <div class="card h-auto shadow-sm card--design">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Design</span>
+                            <h5 class="card-title">JSON Options</h5>
+                            <p class="card-text">
+                                Pass any Masonry option directly in the attribute value as a
+                                valid JSON string. Here we set <code>itemSelector</code>,
+                                <code>columnWidth</code>, <code>percentPosition</code>,
+                                and <code>gutter</code>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item">
+                    <div class="card h-auto shadow-sm card--business">
+                        <div class="card-body">
+                            <span class="badge bg-danger mb-2">Business</span>
+                            <h5 class="card-title">No jQuery Needed</h5>
+                            <p class="card-text">Tiny card — the data attribute path uses plain JavaScript internally.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item">
+                    <div class="card h-auto shadow-sm card--tip">
+                        <div class="card-body">
+                            <span class="badge bg-warning text-dark mb-2">Tip</span>
+                            <h5 class="card-title">CMS-Friendly</h5>
+                            <p class="card-text">
+                                Keeping layout options in the markup is handy for CMS-driven
+                                pages or templating engines where adding inline scripts is
+                                inconvenient or blocked by a CSP policy.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item">
+                    <div class="card h-auto shadow-sm card--science">
+                        <div class="card-body">
+                            <span class="badge mb-2" style="background-color: #6f42c1; color: #fff;">Science</span>
+                            <h5 class="card-title">Sizer Element</h5>
+                            <p class="card-text">
+                                Even with a data attribute you can reference a CSS selector
+                                for <code>columnWidth</code>. This keeps the column width
+                                controlled by CSS and makes the layout responsive.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item">
+                    <div class="card h-auto shadow-sm card--technology">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Technology</span>
+                            <h5 class="card-title">Responsive Layout</h5>
+                            <p class="card-text">Short card — the column count drops at the same breakpoints as the other examples.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item">
+                    <div class="card h-auto shadow-sm card--design">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Design</span>
+                            <h5 class="card-title">Varying Heights</h5>
+                            <p class="card-text">
+                                Cards with different amounts of content pack together tightly
+                                — exactly the cascading "stones in a wall" effect Masonry
+                                is named after.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item">
+                    <div class="card h-auto shadow-sm card--business">
+                        <div class="card-body">
+                            <span class="badge bg-danger mb-2">Business</span>
+                            <h5 class="card-title">Clean Markup</h5>
+                            <p class="card-text">
+                                One attribute on the container is all it takes. The items
+                                themselves need no special markup beyond the
+                                <code>itemSelector</code> class.
+                            </p>
+                        </div>
+                        <div class="card-footer text-muted small">Zero JS footprint</div>
+                    </div>
+                </div>
+
+                <div class="masonry-item">
+                    <div class="card h-auto shadow-sm card--tip">
+                        <div class="card-body">
+                            <span class="badge bg-warning text-dark mb-2">Tip</span>
+                            <h5 class="card-title">Open Source</h5>
+                            <p class="card-text">Tiny card — GPL-3.0 licensed fork by Peter Pfeufer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap 5 bundle -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"
+        ></script>
+
+        <!-- Masonry bundle — picks up data-masonry attributes automatically -->
+        <script src="../js/masonry.js"></script>
+    </body>
+</html>
