@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Masonry - Bootstrap 5 Example</title>
+
+        <!-- Bootstrap 5 -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        >
+
+        <style>
+            body {
+                background-color: #f8f9fa;
+            }
+
+            /* Colour-coded top border per category */
+            .card--technology { border-top: 3px solid #0d6efd; }
+            .card--design     { border-top: 3px solid #198754; }
+            .card--business   { border-top: 3px solid #dc3545; }
+            .card--science    { border-top: 3px solid #6f42c1; }
+
+            /* Keep images a consistent aspect ratio */
+            .card-img-top {
+                aspect-ratio: 16 / 9;
+                object-fit: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-primary mb-4">
+            <div class="container">
+                <span class="navbar-brand mb-0 h1">Masonry — Bootstrap 5 Example</span>
+            </div>
+        </nav>
+
+        <div class="container">
+            <p class="text-muted mb-4">
+                Bootstrap 5 cards of varying heights laid out with Masonry.
+                Resize the browser window to see the responsive breakpoints kick in.
+            </p>
+
+            <div class="row g-3" id="masonry-grid">
+                <!--
+                    Sizer element — carries the same Bootstrap column classes as the
+                    items so Masonry derives the correct columnWidth from CSS.
+                -->
+                <div class="masonry-sizer col-12 col-md-6 col-lg-4"></div>
+
+                <!-- Technology cards -->
+                <div class="masonry-item col-12 col-md-6 col-lg-4">
+                    <div class="card h-auto shadow-sm card--technology">
+                        <img
+                            src="https://picsum.photos/seed/tech1/600/338"
+                            class="card-img-top"
+                            alt="Technology"
+                        >
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Technology</span>
+                            <h5 class="card-title">Web Performance in 2026</h5>
+                            <p class="card-text">
+                                Modern browsers ship powerful APIs for lazy-loading,
+                                prefetching, and priority hints. Learn how to combine
+                                them for sub-second page loads.
+                            </p>
+                        </div>
+                        <div class="card-footer text-muted small">5 min read</div>
+                    </div>
+                </div>
+
+                <div class="masonry-item col-12 col-md-6 col-lg-4">
+                    <div class="card h-auto shadow-sm card--design">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Design</span>
+                            <h5 class="card-title">Colour Theory Basics</h5>
+                            <p class="card-text">Short refresher on hue, saturation, and value.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item col-12 col-md-6 col-lg-4">
+                    <div class="card h-auto shadow-sm card--business">
+                        <img
+                            src="https://picsum.photos/seed/biz1/600/338"
+                            class="card-img-top"
+                            alt="Business"
+                        >
+                        <div class="card-body">
+                            <span class="badge bg-danger mb-2">Business</span>
+                            <h5 class="card-title">Remote Team Playbook</h5>
+                            <p class="card-text">
+                                Asynchronous communication, overlap hours, and the tools
+                                high-performing distributed teams swear by. A practical
+                                guide for engineering managers.
+                            </p>
+                        </div>
+                        <div class="card-footer text-muted small">8 min read</div>
+                    </div>
+                </div>
+
+                <div class="masonry-item col-12 col-md-6 col-lg-4">
+                    <div class="card h-auto shadow-sm card--science">
+                        <div class="card-body">
+                            <span class="badge bg-purple mb-2" style="background-color: #6f42c1;">Science</span>
+                            <h5 class="card-title">Quantum Computing Today</h5>
+                            <p class="card-text">
+                                Error-corrected qubits are finally reaching meaningful
+                                gate counts. Here is what that means for cryptography,
+                                drug discovery, and logistics optimisation.
+                            </p>
+                        </div>
+                        <div class="card-footer text-muted small">12 min read</div>
+                    </div>
+                </div>
+
+                <div class="masonry-item col-12 col-md-6 col-lg-4">
+                    <div class="card h-auto shadow-sm card--technology">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Technology</span>
+                            <h5 class="card-title">CSS Container Queries</h5>
+                            <p class="card-text">Quick tip — style components based on their own size, not the viewport.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item col-12 col-md-6 col-lg-4">
+                    <div class="card h-auto shadow-sm card--design">
+                        <img
+                            src="https://picsum.photos/seed/design1/600/338"
+                            class="card-img-top"
+                            alt="Design"
+                        >
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Design</span>
+                            <h5 class="card-title">Typography in UI Design</h5>
+                            <p class="card-text">
+                                Choosing the right typeface is about more than aesthetics.
+                                Readability, brand voice, and accessibility all hinge on
+                                type choices made early in the design process.
+                            </p>
+                        </div>
+                        <div class="card-footer text-muted small">6 min read</div>
+                    </div>
+                </div>
+
+                <div class="masonry-item col-12 col-md-6 col-lg-4">
+                    <div class="card h-auto shadow-sm card--business">
+                        <div class="card-body">
+                            <span class="badge bg-danger mb-2">Business</span>
+                            <h5 class="card-title">OKRs That Actually Work</h5>
+                            <p class="card-text">Common pitfalls and how to avoid them.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item col-12 col-md-6 col-lg-4">
+                    <div class="card h-auto shadow-sm card--science">
+                        <img
+                            src="https://picsum.photos/seed/science1/600/338"
+                            class="card-img-top"
+                            alt="Science"
+                        >
+                        <div class="card-body">
+                            <span class="badge mb-2" style="background-color: #6f42c1; color: #fff;">Science</span>
+                            <h5 class="card-title">CRISPR Gene Editing Update</h5>
+                            <p class="card-text">
+                                The latest clinical trials show promising results for
+                                sickle-cell disease and certain forms of blindness.
+                                A look at the science and the ethical debate around it.
+                            </p>
+                        </div>
+                        <div class="card-footer text-muted small">10 min read</div>
+                    </div>
+                </div>
+
+                <div class="masonry-item col-12 col-md-6 col-lg-4">
+                    <div class="card h-auto shadow-sm card--technology">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Technology</span>
+                            <h5 class="card-title">Web Components in 2026</h5>
+                            <p class="card-text">
+                                Custom elements, shadow DOM, and HTML templates have
+                                matured. Find out how major frameworks are adopting them
+                                and where vanilla web components shine on their own.
+                            </p>
+                        </div>
+                        <div class="card-footer text-muted small">7 min read</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery (required for $().masonry()) -->
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
+
+        <!-- Bootstrap 5 bundle -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"
+        ></script>
+
+        <!-- Masonry bundle (auto-registers $().masonry() when jQuery is present) -->
+        <script src="../dist/masonry.min.js"></script>
+
+        <script>
+            $(document).ready(() => {
+                $('#masonry-grid').masonry({
+                    itemSelector: '.masonry-item',
+                    columnWidth: '.masonry-sizer',
+                    percentPosition: true
+                    // No gutter option — horizontal gutters are handled by Bootstrap's g-3
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -48,6 +48,14 @@ Section Order:
 
 <!-- Your changes go here -->
 
+### Added
+
+- Example files
+
+### Fixed
+
+- Uncaught TypeError: `$(...).masonry` is not a function
+
 ## [1.1.0] - 2026-08-20
 
 ### Added
