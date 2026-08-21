@@ -3,7 +3,7 @@
 /*!
  * Masonry Plugin for jQuery (modernized fork by Peter Pfeufer)
  *
- * @version 1.1.0
+ * @version 1.1.1
  * @author Peter Pfeufer
  * @license GPL-3.0 or later
  * @link https://github.com/ppfeufer/masonry
