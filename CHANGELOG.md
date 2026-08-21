@@ -48,6 +48,10 @@ Section Order:
 
 <!-- Your changes go here -->
 
+### Changed
+
+- Build config updated
+
 ## [1.1.1] - 2026-08-21
 
 ### Added

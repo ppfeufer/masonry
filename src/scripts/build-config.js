@@ -107,6 +107,11 @@ export const getBundleContents = async () => {
 
     const masonrySource = await readFile(masonrySourceFile, 'utf8');
     const {banner, runtime} = splitMasonrySource(masonrySource);
+    const bundledSections = [...sourceContents, runtime].filter(Boolean).join('\n\n');
 
-    return `${bundleLoadGuardOpen}${[banner, ...sourceContents, runtime].filter(Boolean).join('\n\n')}${bundleLoadGuardClose}`;
+    if (banner) {
+        return `${banner}\n\n${bundleLoadGuardOpen}${bundledSections}${bundleLoadGuardClose}`;
+    }
+
+    return `${bundleLoadGuardOpen}${bundledSections}${bundleLoadGuardClose}`;
 };
