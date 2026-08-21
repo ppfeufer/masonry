@@ -19,7 +19,7 @@
 /*!
  * Masonry Plugin for jQuery (modernized fork by Peter Pfeufer)
  *
- * @version 1.1.0
+ * @version 1.1.1
  * @author Peter Pfeufer
  * @license GPL-3.0 or later
  * @link https://github.com/ppfeufer/masonry
@@ -2187,6 +2187,12 @@ return Outlayer;
             window.Outlayer,
             window.getSize
         );
+
+        // Automatically register as a jQuery plugin when both jQuery and
+        // jQueryBridget are available (bundled or loaded independently).
+        if (typeof window.jQueryBridget === 'function' && typeof window.jQuery === 'function') {
+            window.jQueryBridget('masonry', window.Masonry, window.jQuery);
+        }
     }
 })(window, (Outlayer, getSize) => {
     'use strict';

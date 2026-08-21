@@ -42,7 +42,7 @@ export const bundleSources = [
 ];
 
 // Guard to prevent duplicate loading of the Masonry bundle in the global scope.
-export const bundleLoadGuardOpen = `((globalObject) => {
+const bundleLoadGuardOpen = `((globalObject) => {
     'use strict';
 
     if (globalObject.__ppfeuferMasonryLoaded__) {
@@ -59,7 +59,7 @@ export const bundleLoadGuardOpen = `((globalObject) => {
     });
 
 `;
-export const bundleLoadGuardClose = `
+const bundleLoadGuardClose = `
 })(typeof globalThis !== 'undefined' ? globalThis : window);
 `;
 
@@ -69,7 +69,7 @@ export const bundleLoadGuardClose = `
  * @param {string} source - The masonry.js source file content.
  * @returns {{banner: string, runtime: string}|{banner: string, runtime: string}}
  */
-export const splitMasonrySource = (source) => {
+const splitMasonrySource = (source) => {
     const masonrySectionMarker = '/**\n * Masonry';
     const masonrySectionIndex = source.indexOf(masonrySectionMarker);
 
