@@ -80,15 +80,14 @@ Add a `data-masonry` attribute to your element. Options can be set in JSON in th
 
 ## Development<a name="development"></a>
 
-To rebuild the distributable files in `dist/` from the current `masonry.js` source and its bundled browser dependencies, run:
+To install the Node.js dependencies for development, run:
 
 ```bash
 npm install
-npm run build
 ```
 
-This will:
+To build the development version of Masonry, run:
 
-- create `dist/masonry.js` by concatenating the required browser-ready dependency files and the local `masonry.js`
-- create `dist/masonry.min.js`
-- create `dist/masonry.min.js.map`
+```bash
+npm run build:dev
+```
