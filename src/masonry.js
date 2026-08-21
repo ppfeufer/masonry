@@ -39,6 +39,12 @@
             window.Outlayer,
             window.getSize
         );
+
+        // Automatically register as a jQuery plugin when both jQuery and
+        // jQueryBridget are available (bundled or loaded independently).
+        if (typeof window.jQueryBridget === 'function' && typeof window.jQuery === 'function') {
+            window.jQueryBridget('masonry', window.Masonry, window.jQuery);
+        }
     }
 })(window, (Outlayer, getSize) => {
     'use strict';
