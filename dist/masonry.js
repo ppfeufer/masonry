@@ -1,3 +1,20 @@
+/* globals define */
+
+/*!
+ * Masonry Plugin for jQuery (modernized fork by Peter Pfeufer)
+ *
+ * @version 1.2.0
+ * @author Peter Pfeufer
+ * @license GPL-3.0 or later
+ * @link https://github.com/ppfeufer/masonry
+ *
+ * Description: Cascading grid layout library
+ *
+ * Original Plugin:
+ * Author: David DeSandro
+ * GitHub: https://github.com/desandro/masonry
+ */
+
 ((globalObject) => {
     'use strict';
 
@@ -13,23 +30,6 @@
         value: true,
         writable: false
     });
-
-/* globals define */
-
-/*!
- * Masonry Plugin for jQuery (modernized fork by Peter Pfeufer)
- *
- * @version 1.1.1
- * @author Peter Pfeufer
- * @license GPL-3.0 or later
- * @link https://github.com/ppfeufer/masonry
- *
- * Description: Cascading grid layout library
- *
- * Original Plugin:
- * Author: David DeSandro
- * GitHub: https://github.com/desandro/masonry
- */
 
 /**
  * Bridget makes jQuery widgets
