@@ -1,6 +1,7 @@
 /node_modules/
 /.make/config-overrides.ini
-/masonry.zip
+/masonry/
+/masonry*.zip
 /src/**/*.min.js
 /src/**/*.min.js.map
 /src/test/js/
