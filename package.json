@@ -28,11 +28,11 @@
         "eslint": "^10.14.0",
         "ev-emitter": "^2.1.2",
         "get-size": "^3.0.0",
-        "globals": "^17.13.0",
+        "globals": "^17.14.0",
         "jquery": "^4.0.0",
         "jquery-bridget": "^3.0.1",
         "outlayer": "^2.1.1",
-        "terser": "^5.51.2"
+        "terser": "^5.48.0"
     },
     "scripts": {
         "build:dist": "node src/scripts/build-dist.js",
