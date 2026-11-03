@@ -31,7 +31,7 @@ const buildBundle = async () => {
  */
 buildBundle()
     .then(() => console.log('Bundle build complete.'))
-    .catch(err => {
+    .catch((err) => {
         console.error('Error building bundle:', err);
         process.exit(1);
     });

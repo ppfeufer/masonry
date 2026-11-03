@@ -82,7 +82,7 @@
             const firstItemElem = firstItem && firstItem.element;
 
             // columnWidth fall back to item of first element
-            this.columnWidth = firstItemElem && getSize(firstItemElem).outerWidth || this.containerWidth;
+            this.columnWidth = firstItemElem && (getSize(firstItemElem).outerWidth || this.containerWidth);
         }
 
         const columnWidth = this.columnWidth += this.gutter;
