@@ -3,7 +3,7 @@
 /*!
  * Masonry Plugin for jQuery (modernized fork by Peter Pfeufer)
  *
- * @version 1.2.0
+ * @version 1.3.0
  * @author Peter Pfeufer
  * @license GPL-3.0 or later
  * @link https://github.com/ppfeufer/masonry
@@ -2230,7 +2230,7 @@ return Outlayer;
             const firstItemElem = firstItem && firstItem.element;
 
             // columnWidth fall back to item of first element
-            this.columnWidth = firstItemElem && getSize(firstItemElem).outerWidth || this.containerWidth;
+            this.columnWidth = firstItemElem && (getSize(firstItemElem).outerWidth || this.containerWidth);
         }
 
         const columnWidth = this.columnWidth += this.gutter;

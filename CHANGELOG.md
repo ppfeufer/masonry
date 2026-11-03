@@ -48,6 +48,12 @@ Section Order:
 
 <!-- Your changes go here -->
 
+## [1.3.0] - 2026-11-03
+
+### Fixed
+
+- Unexpected mix of '&&' and '||'
+
 ## [1.2.0] - 2026-08-22
 
 ### Changed
@@ -105,6 +111,7 @@ Section Order:
 [1.1.0]: https://github.com/ppfeufer/masonry/compare/v1.0.0...v1.1.0 "v1.1.0"
 [1.1.1]: https://github.com/ppfeufer/masonry/compare/v1.1.0...v1.1.1 "v1.1.1"
 [1.2.0]: https://github.com/ppfeufer/masonry/compare/v1.1.1...v1.2.0 "v1.2.0"
-[in development]: https://github.com/ppfeufer/masonry/compare/v1.2.0...HEAD "In Development"
+[1.3.0]: https://github.com/ppfeufer/masonry/compare/v1.2.0...v1.3.0 "v1.3.0"
+[in development]: https://github.com/ppfeufer/masonry/compare/v1.3.0...HEAD "In Development"
 [keep a changelog]: http://keepachangelog.com/ "Keep a Changelog"
 [semantic versioning]: http://semver.org/ "Semantic Versioning"
